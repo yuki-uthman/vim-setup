@@ -1,0 +1,167 @@
+"=======================================================================
+" Automatic Install
+"=======================================================================
+
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  
+  " Install all the plugins and close Vim
+  autocmd VimEnter * PlugInstall --sync | execute "normal! ZZ" | execute "normal! ZZ"
+endif
+
+
+
+"=======================================================================
+" Vim-Plug Installs
+"=======================================================================
+
+call plug#begin()
+
+" Autocomplete
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
+" Comment
+Plug 'tpope/vim-commentary'
+
+" Yank highlight
+Plug 'machakann/vim-highlightedyank'
+
+" Smooth scrolling
+Plug 'psliwka/vim-smoothie'
+
+" Nerdtree
+Plug 'preservim/nerdtree'
+
+" Colorschemes
+Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'joshdick/onedark.vim'
+
+" Airline
+Plug 'vim-airline/vim-airline'
+
+call plug#end()
+
+
+"======================================================================
+" General settings
+"======================================================================
+
+set scrolloff=1
+set number
+set relativenumber
+set nowrap
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set smartindent
+set autoindent
+set noswapfile
+set noruler
+set noshowmode
+set laststatus=2
+set clipboard=unnamedplus
+set clipboard=unnamed
+set mouse=a
+set timeoutlen=400
+set backspace=indent,eol,start
+syntax enable
+syntax on
+filetype on
+filetype indent on
+filetype plugin on
+
+" New window opens to the right and below
+set splitbelow
+set splitright
+
+" Case insensitive search unless there is capital letters
+set ignorecase
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Search result updates as it is being typed
+set incsearch
+
+
+let mapleader = " "
+
+
+"=======================================================================
+" Plugins settings
+"======================================================================
+
+" Colorschemes
+silent! colorscheme gruvbox
+
+" Deoplete
+" Start autocomplete on startup
+let g:deoplete#enable_at_startup = 1
+
+" Airline
+let g:airline_inactive_collapse=1
+let g:airline#extensions#taboo#enabled = 1
+let g:airline_section_c = '%t'
+
+" remove the filetype part
+let g:airline_section_x=''
+let g:airline_section_y=''
+let g:airline_section_z = '%{strftime("%a %d %b %H:%M")}'
+
+" remove separators for empty sections
+let g:airline_skip_empty_sections = 1
+
+
+"======================================================================
+" Mappings
+"======================================================================
+" Saving
+nnoremap <C-s> :w<cr>
+
+" Exit
+nnoremap <C-w> :q!<CR>
+
+" Undo 
+nnoremap <C-z> <C-r>
+
+" Source
+nnoremap <C-r> :source $MYVIMRC<CR>
+
+" Autocomplete
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<cr>"
+
+" Start Command Prompt
+nnoremap <leader> :
+
+" Move window up/down
+nnoremap <C-K> <C-Y>
+nnoremap <C-J> <C-E>
+
+" Clear highlight
+nnoremap <ESC><ESC> :set hlsearch!<CR>
+
+" Substitue command
+nnoremap <leader>s :%s///g<left><left>
+xnoremap <leader>s :s///g<Left><Left>
+
+" If you prefer to use Ctrl-F 
+" nnoremap <C-f> :%s///g<left><left>
+" xnoremap <C-f> :s///g<Left><Left>
+
+" Commentary
+" Ctr-/ to toggle comments
+nnoremap <silent> <C-_> :Commentary<CR>
+
+" Nerdtree
+" Toggle the project pane on the left
+nnoremap <silent> \ :NERDTreeToggle<CR>
+
+
