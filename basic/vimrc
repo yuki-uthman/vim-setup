@@ -130,6 +130,9 @@ nnoremap <C-w> :q!<CR>
 " Undo 
 nnoremap <C-z> u
 
+" Un-undo 
+" <C-r>
+
 " Commentary
 " Ctr-/ to toggle comments
 nnoremap <silent> <C-_> :Commentary<CR>
@@ -138,9 +141,6 @@ nnoremap <silent> <C-_> :Commentary<CR>
 " Nerdtree
 " Toggle the project pane on the left
 nnoremap <silent> \ :NERDTreeToggle<CR>
-
-" Source
-nnoremap <C-r> :source $MYVIMRC<CR>
 
 " Autocomplete
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
