@@ -121,6 +121,7 @@ let g:airline_skip_empty_sections = 1
 "======================================================================
 " Mappings
 "======================================================================
+
 " Saving
 nnoremap <C-s> :w<cr>
 
@@ -128,7 +129,16 @@ nnoremap <C-s> :w<cr>
 nnoremap <C-w> :q!<CR>
 
 " Undo 
-nnoremap <C-z> <C-r>
+nnoremap <C-z> u
+
+" Commentary
+" Ctr-/ to toggle comments
+nnoremap <silent> <C-_> :Commentary<CR>
+
+" Project pane
+" Nerdtree
+" Toggle the project pane on the left
+nnoremap <silent> \ :NERDTreeToggle<CR>
 
 " Source
 nnoremap <C-r> :source $MYVIMRC<CR>
@@ -156,12 +166,6 @@ xnoremap <leader>s :s///g<Left><Left>
 " nnoremap <C-f> :%s///g<left><left>
 " xnoremap <C-f> :s///g<Left><Left>
 
-" Commentary
-" Ctr-/ to toggle comments
-nnoremap <silent> <C-_> :Commentary<CR>
 
-" Nerdtree
-" Toggle the project pane on the left
-nnoremap <silent> \ :NERDTreeToggle<CR>
 
 
