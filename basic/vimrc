@@ -51,9 +51,7 @@ call plug#end()
 " General settings
 "======================================================================
 
-set scrolloff=1
 set number
-set relativenumber
 set nowrap
 set tabstop=2
 set shiftwidth=2
@@ -69,6 +67,7 @@ set clipboard=unnamed
 set mouse=a
 set timeoutlen=400
 set backspace=indent,eol,start
+set termguicolors
 syntax enable
 syntax on
 filetype on
